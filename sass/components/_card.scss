@@ -1,0 +1,140 @@
+.card{
+    position: relative;
+    width: 370px;
+    background-color: $white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: box-shadow $transition-duration linear;
+    overflow: hidden;
+    a{
+        color: inherit;
+        text-decoration: none;
+    }
+}
+.card:hover{
+    box-shadow: 0 0 50px rgba(0, 0, 0, .3);    
+}
+
+.card__date{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: $primary;
+    color: $white;
+    line-height: 15px;
+    display: flex;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    &--day{
+        font-size: 14px;
+        font-weight: 700;    
+    }
+    
+    &--month{
+        font-size: 10px;
+        font-weight: 400;    
+    }
+}
+
+.card__thumb{
+    overflow: hidden;
+    height: 235px;
+    background-color: $black;
+    transition: height $transition-duration linear;
+    img{
+        width: 100%;
+        display: block;
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity $transition-duration linear, transform $transition-duration linear;
+    }
+    .card:hover & {
+        height: 90px;
+    }
+    .card:hover & img{
+        opacity: .6;
+        transform: scale(1.2);
+    }
+}
+
+.card__body{
+    height: 180px;
+    position: relative;
+    padding: 20px;
+    transition: height $transition-duration linear;
+    .card:hover &{
+        height: 180px + 145px;
+    }
+    &--category{
+        position: absolute;
+        height: 25px;
+        padding: 0 15px;
+        color: $white;
+        background-color: $primary;
+        font-size: 11px;
+        line-height: 25px;
+        text-transform: uppercase;
+        left: 0;
+        top: -25px;
+    }
+    &--title{
+        margin: 0;
+        padding: 0 0 10px 0;
+        font-size: 22px;
+        color: $black;
+        font-weight: 700;
+    }
+    &--subtitle{
+        margin: 0;
+        padding: 0 0 10px 0;
+        color: $primary;
+        font-weight: 500;
+    }
+    &--description{
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 50px;
+        opacity: 0;
+        color: #666C74;
+        font-size: 14px;
+        line-height: 27px;
+        transform: translateY(40px);
+        transition: opacity $transition-duration - .1s ease-out, transform $transition-duration - .1s ease-out;
+        .card:hover & {
+            transition: opacity $transition-duration + .3s linear, transform $transition-duration + .3s, linear ;
+            transform: translateY(0px);               
+            opacity: 1;
+        }
+    }
+}
+
+.card__footer{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    font-size: 11px;
+    color: #A9A3AB;
+    &--icon{
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 2px;
+        margin-bottom: 2px;
+    }
+    .icon--comment{
+        margin-left: 10px;
+        width: 14px;
+        height: 14px;
+        background-image: url('../img/icon-comment.png');
+    }
+    .icon--time{
+        background: url('../img/icon-time.png');
+        width: 10px;
+        height: 17px;
+    }
+}
